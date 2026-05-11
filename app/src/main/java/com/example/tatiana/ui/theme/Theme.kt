@@ -13,9 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = PrimaryFood,
+    primary = PrimaryPurpleBlue,
     secondary = SecondaryFood,
-    tertiary = TertiaryFood,
+    tertiary = TertiaryPurpleBlue,
     background = DarkBackground,
     surface = CardDark,
     onPrimary = Color.White,
@@ -26,9 +26,9 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = PrimaryFood,
+    primary = PrimaryPurpleBlue,
     secondary = SecondaryFood,
-    tertiary = TertiaryFood,
+    tertiary = TertiaryPurpleBlue,
     background = LightBackground,
     surface = CardLight,
     onPrimary = Color.White,

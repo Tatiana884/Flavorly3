@@ -7,16 +7,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.tatiana.ui.theme.Black
 
 @Composable
 fun OnboardingScreen(onFinish: () -> Unit) {
     val gradient = Brush.verticalGradient(
         colors = listOf(
-            MaterialTheme.colorScheme.primaryContainer,
-            MaterialTheme.colorScheme.background
+                    Color(0xFF8EC5FC),
+                    Color(0xFFA18CD1),
+                    Color(0xFFD299FF)
         )
     )
 
@@ -31,7 +33,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
         Text(
             text = "Welcome to Flavorly Recipes",
             style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.colorScheme.primary,
+            color = Black,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(16.dp))

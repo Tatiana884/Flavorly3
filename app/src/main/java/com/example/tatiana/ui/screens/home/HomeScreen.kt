@@ -55,8 +55,8 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
     // Mapping categories to a fresh set of working Kenyan-focused sites
     val categoryUrls = mapOf(
         "Quick Meals" to "https://cookpad.com/ke/search/quick%20meals",
-        "Budget Friendly" to "https://mumsvillage.com/lifestyle_post_category/food-recipes/",
-        "Popular" to "https://yummy.co.ke/recipes/",
+        "Budget Friendly" to "https://africanfoodmap.com/",
+        "Popular" to "https://cookpad.com/ke/",
         "Traditional" to "https://www.tasteatlas.com/kenya",
         "Special" to "https://chef-raphael.com/category/recipes/"
     )
@@ -191,9 +191,46 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
                     }
                 }
                 
+                // Pilau Image Section
+                item {
+                    PilauImageSection()
+                }
+                
                 item {
                     Spacer(modifier = Modifier.height(80.dp))
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun PilauImageSection() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp),
+            shape = MaterialTheme.shapes.medium,
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.primaryContainer),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Fastfood,
+                    contentDescription = "Swahili Pilau Icon",
+                    modifier = Modifier.size(80.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
             }
         }
     }

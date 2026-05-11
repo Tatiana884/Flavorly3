@@ -13,6 +13,7 @@ navigationCompose = "2.8.5"
 supabase = "3.6.0"
 kotlinSerialization = "1.8.0"
 playServicesAuth = "21.5.1"
+uiGraphics = "1.11.1"
 
 
 [libraries]
@@ -38,6 +39,7 @@ supabase-postgrest = { group = "io.github.jan-tennert.supabase", name = "postgre
 supabase-auth = { group = "io.github.jan-tennert.supabase", name = "auth-kt", version.ref = "supabase" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 
 
 [plugins]
