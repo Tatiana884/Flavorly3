@@ -2,6 +2,8 @@ package com.example.tatiana.ui.screens.onboarding
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.RestaurantMenu
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,6 +32,14 @@ fun OnboardingScreen(onFinish: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Icon(
+            imageVector = Icons.Default.RestaurantMenu,
+            contentDescription = "App Logo",
+            modifier = Modifier
+                .size(100.dp)
+                .padding(bottom = 24.dp),
+            tint = Black
+        )
         Text(
             text = "Welcome to Flavorly Recipes",
             style = MaterialTheme.typography.headlineLarge,
