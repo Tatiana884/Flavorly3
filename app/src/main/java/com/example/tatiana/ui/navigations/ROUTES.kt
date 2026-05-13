@@ -5,5 +5,10 @@ enum class ROUTES {
     LOGIN,
     REGISTER,
     FORGOT_PASSWORD,
-    HOME
+    HOME,
+    PROFILE,
+    SETTINGS,
+    MY_RECIPES,
+    FAVORITES,
+    PRIVACY_POLICY
 }

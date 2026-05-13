@@ -30,7 +30,7 @@ import androidx.compose.ui.platform.LocalContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
+fun HomeScreen(viewModel: HomeViewModel = viewModel(), onNavigateToProfile: () -> Unit) {
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
     val uriHandler = LocalUriHandler.current
@@ -91,7 +91,7 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
                     IconButton(onClick = shareApp) {
                         Icon(Icons.Default.Share, contentDescription = "Share App", tint = MaterialTheme.colorScheme.primary)
                     }
-                    IconButton(onClick = { /* Profile or Settings */ }) {
+                    IconButton(onClick = onNavigateToProfile) {
                         Icon(Icons.Default.Person, contentDescription = "Profile", tint = MaterialTheme.colorScheme.primary)
                     }
                 }
