@@ -41,7 +41,7 @@ fun PrivacyPolicyScreen(onNavigateBack: () -> Unit) {
             )
 
             Text(
-                text = "Last updated: October 2023",
+                text = "Last updated: May 2026",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.padding(bottom = 24.dp)

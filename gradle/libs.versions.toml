@@ -14,6 +14,7 @@ supabase = "3.6.0"
 kotlinSerialization = "1.8.0"
 playServicesAuth = "21.5.1"
 uiGraphics = "1.11.1"
+coreSplashscreen = "1.2.0"
 
 
 [libraries]
@@ -40,6 +41,7 @@ supabase-auth = { group = "io.github.jan-tennert.supabase", name = "auth-kt", ve
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
 
 
 [plugins]

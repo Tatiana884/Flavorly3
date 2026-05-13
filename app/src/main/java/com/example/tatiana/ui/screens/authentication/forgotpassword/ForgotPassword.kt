@@ -7,6 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.tatiana.ui.theme.Black
 
 @Composable
 fun ForgotPasswordScreen(
@@ -30,7 +31,12 @@ fun ForgotPasswordScreen(
             value = email,
             onValueChange = { email = it },
             label = { Text("Email") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedTextColor = Black,
+                unfocusedTextColor = Black,
+                cursorColor = Black
+            )
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(

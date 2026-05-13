@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.tatiana.data.model.Recipe
+import com.example.tatiana.ui.theme.Black
 
 import android.content.Intent
 import androidx.compose.ui.platform.LocalContext
@@ -128,7 +129,12 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel(), onNavigateToProfile: () -
                         placeholder = { Text("Search recipes...") },
                         leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                         singleLine = true,
-                        shape = MaterialTheme.shapes.medium
+                        shape = MaterialTheme.shapes.medium,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Black,
+                            unfocusedTextColor = Black,
+                            cursorColor = Black
+                        )
                     )
                 }
 
@@ -181,6 +187,21 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel(), onNavigateToProfile: () -
                     item {
                         Box(modifier = Modifier.fillMaxWidth().height(200.dp), contentAlignment = Alignment.Center) {
                             CircularProgressIndicator()
+                        }
+                    }
+                } else if (filteredRecipes.isEmpty()) {
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(32.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text("No recipes found.", style = MaterialTheme.typography.bodyLarge)
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Button(onClick = { viewModel.seedData() }) {
+                                Text("Load Kenyan Recipes")
+                            }
                         }
                     }
                 } else {

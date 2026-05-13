@@ -130,6 +130,79 @@ object RecipeSeeder {
             estimatedCost = 450,
             webUrl = null,
             category = "Special"
+        ),
+        Recipe(
+            title = "Nyama Choma & Kachumbari",
+            description = "The classic Kenyan grilled meat experience, usually enjoyed with friends and family.",
+            imageUrl = "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
+            ingredients = listOf(
+                "1kg Goat or Beef ribs",
+                "Salt",
+                "1 Onion",
+                "2 Tomatoes",
+                "Coriander",
+                "Lemon"
+            ),
+            instructions = listOf(
+                "Rub the meat with salt.",
+                "Grill over charcoal for 30-45 minutes, turning occasionally until browned and cooked through.",
+                "Prepare Kachumbari by mixing chopped onions, tomatoes, and coriander with lemon juice.",
+                "Slice the meat into bite-sized pieces and serve with Ugali and Kachumbari."
+            ),
+            estimatedCost = 800,
+            webUrl = null,
+            category = "Traditional"
+        ),
+        Recipe(
+            title = "Mukimo",
+            description = "A nutritious mash of potatoes, maize, beans, and pumpkin leaves or stinging nettle.",
+            imageUrl = "https://images.unsplash.com/photo-1543339308-43e59d6b73a6",
+            ingredients = listOf(
+                "1kg Potatoes",
+                "2 cups Maize (soft)",
+                "1 cup Beans or Peas",
+                "1 bunch Pumpkin leaves (Managu) or Stinging Nettle",
+                "1 Onion",
+                "Cooking Oil",
+                "Salt"
+            ),
+            instructions = listOf(
+                "Boil maize and beans/peas until soft.",
+                "Peel and boil potatoes in a separate pot with the pumpkin leaves on top.",
+                "Once potatoes are soft, drain water (keep a little) and mash together with the leaves.",
+                "Add the boiled maize and beans to the mash and mix well.",
+                "Fry onions in oil until golden and stir into the Mukimo.",
+                "Serve with beef stew or Kachumbari."
+            ),
+            estimatedCost = 350,
+            webUrl = null,
+            category = "Traditional"
+        ),
+        Recipe(
+            title = "Matoke ya Nyama",
+            description = "Delicious green bananas stewed with beef and vegetables.",
+            imageUrl = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+            ingredients = listOf(
+                "10 Green Bananas (Matoke)",
+                "500g Beef (cubed)",
+                "1 Onion",
+                "2 Tomatoes",
+                "1 Bell Pepper (Hoho)",
+                "2 Carrots",
+                "Beef Masala",
+                "Salt"
+            ),
+            instructions = listOf(
+                "Peel the matoke and soak in water to prevent browning.",
+                "Boil beef until tender.",
+                "Fry onions and hoho, then add tomatoes and carrots. Cook until soft.",
+                "Add beef and matoke. Season with salt and beef masala.",
+                "Add water to cover and simmer until matoke is soft and the sauce thickens.",
+                "Serve hot."
+            ),
+            estimatedCost = 500,
+            webUrl = null,
+            category = "Popular"
         )
     )
 
