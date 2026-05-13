@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.play.services.auth)
+    implementation(libs.coil.compose)
 
 
     // Supabase

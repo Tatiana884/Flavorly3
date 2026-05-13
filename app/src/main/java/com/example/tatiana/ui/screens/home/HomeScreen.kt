@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
 import com.example.tatiana.data.model.Recipe
 import com.example.tatiana.ui.theme.Black
 
@@ -189,21 +190,6 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel(), onNavigateToProfile: () -
                             CircularProgressIndicator()
                         }
                     }
-                } else if (filteredRecipes.isEmpty()) {
-                    item {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(32.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text("No recipes found.", style = MaterialTheme.typography.bodyLarge)
-                            Spacer(modifier = Modifier.height(16.dp))
-                            Button(onClick = { viewModel.seedData() }) {
-                                Text("Load Kenyan Recipes")
-                            }
-                        }
-                    }
                 } else {
                     items(filteredRecipes) { recipe ->
                         Box(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
@@ -362,55 +348,66 @@ fun RecipeItem(recipe: Recipe, onDelete: () -> Unit) {
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(text = recipe.title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f), fontWeight = FontWeight.Bold)
-                
-                IconButton(onClick = onDelete) {
-                    Icon(Icons.Default.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error)
-                }
-            }
-            
-            Text(
-                text = recipe.category,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.secondary,
-                fontWeight = FontWeight.Medium
+        Column {
+            AsyncImage(
+                model = recipe.imageUrl,
+                contentDescription = recipe.title,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(180.dp),
+                contentScale = androidx.compose.ui.layout.ContentScale.Crop
             )
             
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = recipe.description, style = MaterialTheme.typography.bodyMedium, maxLines = 2)
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                recipe.estimatedCost?.let { cost ->
-                    Surface(
-                        color = MaterialTheme.colorScheme.primaryContainer,
-                        shape = MaterialTheme.shapes.small
-                    ) {
-                        Text(
-                            text = "Est: KES $cost",
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer
-                        )
+            Column(modifier = Modifier.padding(16.dp)) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(text = recipe.title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f), fontWeight = FontWeight.Bold)
+                    
+                    IconButton(onClick = onDelete) {
+                        Icon(Icons.Default.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error)
                     }
                 }
-
-                Button(
-                    onClick = { /* Navigate to details or open URL */ },
-                    shape = MaterialTheme.shapes.medium
+                
+                Text(
+                    text = recipe.category,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.secondary,
+                    fontWeight = FontWeight.Medium
+                )
+                
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(text = recipe.description, style = MaterialTheme.typography.bodyMedium, maxLines = 2)
+                
+                Spacer(modifier = Modifier.height(12.dp))
+                
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("View Recipe")
+                    recipe.estimatedCost?.let { cost ->
+                        Surface(
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                            shape = MaterialTheme.shapes.small
+                        ) {
+                            Text(
+                                text = "Est: KES $cost",
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer
+                            )
+                        }
+                    }
+
+                    Button(
+                        onClick = { /* Navigate to details or open URL */ },
+                        shape = MaterialTheme.shapes.medium
+                    ) {
+                        Text("View Recipe")
+                    }
                 }
             }
         }
